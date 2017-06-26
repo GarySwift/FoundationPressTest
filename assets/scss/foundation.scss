@@ -94,3 +94,50 @@
 @import "templates/page-sidebar-left";
 @import "templates/page-full-width";
 @import "templates/single-post";
+
+
+
+
+// Style for next and previous posts link 
+// Adds font awsome icons to links
+@keyframes vibrate-icon {
+	0% {left: 0;}  
+	50% {left: 3px;}  
+	100% {left: 0;}  
+}
+div.nav-links {
+	border-top: 1px solid $light-gray;
+	$icon-padding: 8px;
+	$icon-font-size: 28px;
+	$top-buffer: 4px;
+	a {
+		position: relative; 
+	}
+	.nav-next a:after, .nav-previous a:before  {
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-decoration: inherit;
+		font-size: $icon-font-size;
+		position: relative;
+		top: $top-buffer;
+		left: 0;
+	}
+	a:hover:after,  a:hover:before {
+		-webkit-animation: vibrate-icon 0.5s linear infinite;
+		animation: vibrate-icon 0.5s linear infinite;  
+  	}
+	.nav-next {
+		a:after {
+			content: "\f138";		
+			padding-left: $icon-padding;
+		}
+	}
+	.nav-previous {
+		a:before 	{
+			content: "\f137";
+			padding-right: $icon-padding;
+	
+		}
+	}	
+}
